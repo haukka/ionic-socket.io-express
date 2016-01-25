@@ -1,0 +1,31 @@
+<ion-view view-title="{{chat.name}}">
+  <ion-content padding="true">
+    <div ng-repeat="mess in message">
+        <div ng-if="mess.sender == 0">
+          <div class="bubble you">
+            {{ mess.value }}
+          </div>
+        </div>
+      <div style="clear:both"></div>
+      <div ng-if="mess.sender == 1">
+        <div class="bubble me">
+          {{ mess.value }}
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </ion-content>
+    <ion-footer-bar keyboard-attach>
+      <form style="width: 100%">
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="search" name="text" placeholder="Tapez un message" ng-model="text">
+        </label>
+        <button class="button button-clear" type="submit" ng-click="send_message(text)">
+          Envoyer
+        </button>
+      </div>
+        <form>
+    </ion-footer-bar>
+  </form>
+</ion-view>
